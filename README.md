@@ -22,7 +22,7 @@ feAR = accelerated_kaczmarz(test_suite, xs, 1e-6, iter, iter/10); % iterate 10 t
 
 y = 1e6:1e6:1e9;
 
-graph_test_suite(n, cond_num, ferr, y, false, fe, feR, feA, feAR); % replace false with true if you want to save figure
+graph_test_suite(n, cond_num, ferr, y, false, fe, feR, feA, feAR); % replace false with true if you want to save figures
 
 % Optional: save into .mat file
 % save('data\' + n + '_' + cond_num_str + '.mat', 'fe', 'feR', 'feA', 'feAR', 'ferr', 'xs')

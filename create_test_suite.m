@@ -1,17 +1,17 @@
 rng(123);
 cond_num = 1e5;
-n = 32;
+n = 500;
 A1 = make_test_matrix_cond(n, n, 'poly', [], cond_num);
 A2 = make_test_matrix_cond(n, n, 'exp', [], cond_num);
 %A3 = make_test_matrix_cond(n, n, 'cluster', .1, cond_num);
 %A4 = make_test_matrix_cond(n, n, 'cluster', .2, cond_num);
-A3 = make_test_matrix_cond(n, n, 'lowrank', .1, cond_num);
+%A3 = make_test_matrix_cond(n, n, 'lowrank', .1, cond_num);
 %A6 = make_test_matrix_cond(n, n, 'lowrank', .2, cond_num);
-A4 = make_test_matrix_cond(n, n, 'lowrank', .9, cond_num); %highrank
+A3 = make_test_matrix_cond(n, n, 'lowrank', .9, cond_num); %highrank
 %A5 = make_test_matrix_cond(n, n, 'linear', [], cond_num);
-A5 = make_test_matrix_cond(n, n, 'harmonic', [], cond_num);
+A4 = make_test_matrix_cond(n, n, 'harmonic', [], cond_num);
 
-test_suite = {A1, A2, A3, A4, A5};
+test_suite = {A1, A2, A3, A4};
 
 function A = make_test_matrix_cond(m, n, type, param, cond_num)
 %MAKE_TEST_MATRIX_COND  Generate m-by-n test matrix whose decay law yields cond_num
