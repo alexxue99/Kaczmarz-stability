@@ -30,7 +30,7 @@ for index = 1:numel(test_suite)
 
     A_s = single(A); x_s = single(x);
     b_s = single(b);
-    ferr(index) = norm(A_s\b_s - x_s) / norm(x_s);
+    ferr(index) = norm(double(A_s\b_s) - x) / norm(x);
     %berr(index) = norm(A_s * (A_s\b_s) - b_s) / (norm(A_s) * norm(x_s));
     % Optional normalize rows of A
     % rownorms = sqrt(sum(A_s.^2, 2));

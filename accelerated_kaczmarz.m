@@ -26,6 +26,7 @@ fe = zeros(numel(test_suite), 1000); % forward errors
 %be = zeros(numel(test_suite), 1000); % backward errors
 step = round(iter/1000);
 
+tic
 for index = 1:numel(test_suite)
     A = test_suite{index};
     x = xs{index};
@@ -73,8 +74,8 @@ for index = 1:numel(test_suite)
             count = count + 1;
             if mod(i, refine) == 0
                 xx = xx + xx2;    
-                y_new = y_new - xx2;
-                v_new = v_new - xx2;
+                y_new = zeros(n, 1, 'single');
+                v_new = zeros(n, 1, 'single');
                 xx2 = zeros(n, 1, 'single');
                 b2 = b_s - A_s*xx;
                 disp(norm(double(xx + xx2) - x) / norm(x))
@@ -83,5 +84,8 @@ for index = 1:numel(test_suite)
         y = y_new;
         v = v_new;
     end
+
+    toc
+    save('data/prelim_accel.mat', 'fe', 'index')
 end
 end
