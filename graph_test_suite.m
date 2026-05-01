@@ -31,20 +31,24 @@ for i = 1:size(err, 1)
         ylim([1e-5*7, 2]);
         yticks([1e-4, 1e-3, 1e-2, 1e-1, 1]);
         yticklabels({'10^{-4}', '10^{-3}', '10^{-2}', '10^{-1}', '10^{0}'});
+        xlim([1e7, 1e10]);
+        xticks([1e7, 1e8, 1e9, 1e10]);
     end
 
     if cond_num == 1e4
         ylim([1e-6*7, 2]);
         yticks([1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1]);
         yticklabels({'10^{-5}', '10^{-4}', '10^{-3}', '10^{-2}', '10^{-1}', '10^{0}'});
+        xlim([1e6, 1e9]);
+        xticks([1e6, 1e7, 1e8, 1e9]);
     end
 
     set(gca, 'FontWeight', 'bold', 'FontSize', 20, 'TickLabelInterpreter', 'tex');
     xlabel('Iteration', 'FontSize', 30);
     ylabel('Error', 'FontSize', 30);
 
-    xlim([1e6, 1e9]);
-    xticks([1e6, 1e7, 1e8, 1e9]);
+    xlim([1e7, 1e10]);
+    xticks([1e7, 1e8, 1e9, 1e10]);
     cond_num_str = strrep(sprintf('%.0e', cond_num), '+', '');
     if save
         saveas(fig, "figs/"+names{i}+"_"+ n + "_" + cond_num_str + ".png");
